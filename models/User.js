@@ -5,11 +5,12 @@ const sequelize = require("../services/MySqlConnect");
 
 const User = sequelize.define('User',{
     id:{
-        type:DataTypes.INTEGER,
-        unique:true,
+        type:DataTypes.UUID,
+        defaultValue:DataTypes.UUIDV4,
+        // unique:true,
         allowNull:false,
         primaryKey:true,
-        autoIncrement:true
+        // autoIncrement:true
     },
     name:{
       type:DataTypes.STRING,

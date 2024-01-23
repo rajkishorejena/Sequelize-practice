@@ -1,5 +1,6 @@
 
 const Cart = require("../models/Cart");
+const Product = require("../models/Product");
 
 
 const addItemToCart= async(response)=>{
@@ -18,7 +19,11 @@ const addItemToCart= async(response)=>{
 
 const getCartByUserId = async(userId)=>{
     try{
-      const response = await Cart.findAll({where:{userId}})
+      const response = await Cart.findAll({where:{userId},include:[
+        {
+          model:Product,
+        }
+      ]})
       
       return response;
     }catch(e){

@@ -30,6 +30,6 @@ const Cart = sequelize.define("Cart",{
 
 });
 
-
+Cart.belongsTo(Product,{foreignKey:"productId"});
 
 module.exports = Cart;
